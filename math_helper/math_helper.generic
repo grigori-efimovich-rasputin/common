@@ -1,0 +1,32 @@
+package mathHelper
+
+
+import (
+	"github.com/cheekybits/genny/generic"
+)
+
+
+type T generic.Type
+
+
+func MaxT(x, y T) T {
+	if x > y {
+		return x
+	}
+
+	return y
+}
+
+func MinT(x, y T) T {
+	if x < y {
+		return x
+	}
+
+	return y
+}
+
+func ClampT(min, max, val T) T {
+	return MinT(MaxT(min, val), max)
+}
+
+
