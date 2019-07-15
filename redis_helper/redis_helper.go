@@ -8,24 +8,23 @@ import (
 
 var instance *redis.Client
 var once sync.Once
-var conf *redisConf
+var Conf *redisConf
 
-type redisConf struct {
+type RedisConf struct {
 	addr     string
 	password string
 	db       int
 }
 
 func init() {
-	_ = &redisConf{"localhost:6379", "", 0}
 }
 
 func GetRedisClient() *redis.Client {
 	once.Do(func() {
-		instance := redis.NewClient(&redis.Options{
-			Addr:     conf.addr,
-			Password: conf.password,
-			DB:       conf.db,
+		instance = redis.NewClient(&redis.Options{
+			Addr:     Conf.addr,
+			Password: Conf.password,
+			DB:       Conf.db,
 		})
 		_, err := instance.Ping().Result()
 		if err != nil {
