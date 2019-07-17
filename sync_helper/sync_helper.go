@@ -12,7 +12,7 @@ type AtomicLock struct {
 	flag uint32
 }
 
-func NewAtomicLock() *AtomicLock{
+func NewAtomicLock() *AtomicLock {
 	return &AtomicLock{flag: 0}
 }
 
