@@ -30,6 +30,7 @@ func WriteFile(filename string, data []byte, perm os.FileMode) error {
 	return nil
 }
 
+// check file exists
 func Exists(name string) bool {
 	if _, err := os.Stat(name); err != nil {
 		if os.IsNotExist(err) {
